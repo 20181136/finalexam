@@ -41,7 +41,7 @@ private:
     bool m_bRunning;
 
     Vector2D* _mousePos;
-    Walker* _walker;
+    Walker* _walker[3];
 
     SDL_Texture* mTexture;
     SDL_Rect _srcRect;

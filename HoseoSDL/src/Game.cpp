@@ -14,30 +14,35 @@ bool Game::setup()
 
   result = init("Nature of Code", 0, 0, WIDTH, HEIGHT, false);
 
-  _walker = new Walker(WIDTH/2,HEIGHT/2);
-
-
+  _walker[0] = new Walker(5, 30,200);
+  _walker[1] = new Walker(5, 500, 200);
+  _walker[2] = new Walker(30, 300, 200);
   return result;
 }
 
 void Game::update()
 {
-  _walker->update();
-
+  for(int i = 0; i<=2; i++)
+    _walker[i]->update();
+  _walker[0]->applyForce(_walker[0]->movingObj());
+  _walker[1]->applyForce(_walker[1]->hide());
+  _walker[0]->huntercheckEdge();
+  _walker[1]->hidercheckEdge();
   SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 255);
 }
       
 void Game::render()
 {
-  SDL_RenderClear(m_pRenderer);  
+    SDL_RenderClear(m_pRenderer);
 
-  _walker->draw(m_pRenderer);
+    _walker[0]->drawHunter(m_pRenderer);
+    _walker[1]->drawHider(m_pRenderer);
+    _walker[2]->obstacleObj(m_pRenderer);
+  
+    SDL_RenderPresent(m_pRenderer); 
+
 
   
-  SDL_RenderPresent(m_pRenderer); 
-
-
-  // ?¨Í∞Å??Í∑∏Î¶¨Í∏?
   /*
 
   SDL_Rect rect[2];

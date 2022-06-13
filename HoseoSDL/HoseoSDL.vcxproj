@@ -120,7 +120,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_gfx.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
@@ -148,7 +148,11 @@
     <ClCompile Include="src\Walker.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\InputHandler.h" />
     <ClInclude Include="include\main.h" />
+    <ClInclude Include="include\Vector2D.h" />
+    <ClInclude Include="include\Walker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
